@@ -94,60 +94,14 @@ class Lienzo(p:MainActivity) : View(p) {
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        puntero.setTitle("")
+        //puntero.setTitle("")
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                //REVISAMOS QUIEN ESTA EN AREA
-                if (circulo.estaEnArea(event)) {
-                    punteroFiguraGeometrica = circulo
-                    puntero.setTitle("TOCASTE CIRCULO")
-                }
-                /*if (cuadrado.estaEnArea(event)) {
-                    punteroFiguraGeometrica = cuadrado
-                    puntero.setTitle("TOCASTE CUADRADO")
-                }
-                if (rectangulo.estaEnArea(event)) {
-                    punteroFiguraGeometrica = rectangulo
-                    puntero.setTitle("TOCASTE RECTANGULO")
-                }*/
-                if (circulo2.estaEnArea(event)) {
-                    punteroFiguraGeometrica = circulo2
-                    puntero.setTitle("TOCASTE CIRCULO2")
-                }
+
             }
             MotionEvent.ACTION_MOVE -> {
                 if (punteroFiguraGeometrica != null) {
                     punteroFiguraGeometrica!!.arrastrar(event)
-
-                    //EVALUAR LA COLISION DEL CIRCULO
-                    if(punteroFiguraGeometrica == circulo){
-                       //AQUI ENTRA SI Y SOLO A QUIEN ARRASTRO ES EL CIRCULO
-                       /* if(punteroFiguraGeometrica!!.colision(cuadrado)){
-                           //AQUI ENTRA SI CIRCULO 1 COLISIONO AL CUADRADO
-                           puntero.setTitle("Circulo 1 colisiono cuadrado")
-                        }*/
-
-                        if(punteroFiguraGeometrica!!.colision(circulo2)){
-                            //AQUI ENTRA SI CIRCULO 1 COLISIONO AL CUADRADO
-                            puntero.setTitle("Circulo 1 colisiono circulo 2")
-                        }
-                    }
-
-                    //EVALUAR LA COLISION DEL CIRCULO2
-                    if(punteroFiguraGeometrica == circulo2){
-                        //AQUI ENTRA SI Y SOLO A QUIEN ARRASTRO ES EL CIRCULO2
-                        if(punteroFiguraGeometrica!!.colision(circulo)){
-                            //AQUI ENTRA SI CIRCULO 1 COLISIONO AL CUADRADO
-                            puntero.setTitle("Circulo 2 colisiono Circulo 1")
-                        }
-
-                        /*if(punteroFiguraGeometrica!!.colision(cuadrado)){
-                            //AQUI ENTRA SI CIRCULO 1 COLISIONO AL CUADRADO
-                            puntero.setTitle("Circulo 1 toco cuadrado")
-                        }*/
-                    }
-
-                    //Como agregar imagenes al canvas
 
                 }
 
